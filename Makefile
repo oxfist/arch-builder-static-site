@@ -22,14 +22,6 @@ pam:
 	echo "auth required pam_wheel.so use_uid" >> /etc/pam.d/su
 	echo "auth required pam_wheel.so use_uid" >> /etc/pam.d/su-l
 
-postgresql:
-	sh bin/postgresql.sh
-	cp etc/back-up-postgresql /usr/local/bin/
-	cp etc/back-up-postgresql.* /etc/systemd/system/
-	systemctl enable back-up-postgresql.timer
-	systemctl start back-up-postgresql.timer
-	sudo -u psql -f etc/set-up-postgresql.sql
-
 .PHONY: users
 users:
 	sh bin/users.sh

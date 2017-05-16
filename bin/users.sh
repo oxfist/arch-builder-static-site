@@ -3,6 +3,7 @@
 set -o errexit
 set -o nounset
 
+echo "Now enter new root password."
 passwd
 
 useradd --system\
